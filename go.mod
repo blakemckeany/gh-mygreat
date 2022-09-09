@@ -2,7 +2,10 @@ module github.com/blakemckeany/gh-mygreat
 
 go 1.19
 
-require github.com/cli/go-gh v0.1.0
+require (
+	github.com/MakeNowJust/heredoc v1.0.0
+	github.com/cli/go-gh v0.1.0
+)
 
 require (
 	github.com/cli/safeexec v1.0.0 // indirect
