@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/MakeNowJust/heredoc"
 	"github.com/cli/go-gh"
 	"log"
 )
