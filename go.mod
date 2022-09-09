@@ -9,6 +9,7 @@ require (
 	github.com/cli/browser v1.1.0 // indirect
 	github.com/cli/safeexec v1.0.0 // indirect
 	github.com/cli/shurcooL-graphql v0.0.1 // indirect
+	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
 	github.com/henvic/httpretty v0.0.6 // indirect
 	github.com/kr/text v0.2.0 // indirect
 	github.com/thlib/go-timezone-local v0.0.0-20210907160436-ef149e42d28e // indirect
