@@ -91,30 +91,6 @@ func CreateIssues(owner string, repo string, issues []Issue) {
 		}
 		fmt.Println("Issue created: " + issue.Title)
 	}
-	// client, err := gh.RESTClient(nil) // if err != nil {
-	// 	log.Fatal(err)
-	// }
-	// for _, issue := range issues {
-	// 	fmt.Println(issue.Title)
-	// 	_, err := client.Issues.Create(owner, repo, &gh.IssueRequest{Title: issue.Title, Body: issue.Body})
-	// 	if err != nil {
-	// 		log.Fatal(err)
-	// 	}
-	// }
-	// client, err := gh.RESTClient(nil)
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	// for _, issue := range issues {
-	// 	// Create io.Reader for the issue body.
-	// 	var buf bytes.Buffer
-	// 	err := json.NewEncoder(&buf).Encode(issue)
-	// 	if err != nil {
-	// 		log.Fatal(err)
-	// 	}
-
-	// 	client.Post("/repos/"+owner+"/"+repo+"/issues", &buf, nil)
-	// }
 }
 
 // Get a list of issues from a repository
