@@ -12,6 +12,8 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - run: go mod download github.com/MakeNowJust/heredoc
       - uses: actions/checkout@v2
       - uses: cli/gh-extension-precompile@v1.2.1
+
 
