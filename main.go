@@ -3,7 +3,9 @@ package main
 import (
 	"fmt"
 	"github.com/cli/go-gh"
+	"github.com/fatih/color"
 	"log"
+	"strings"
 )
 
 // Label struct
@@ -30,23 +32,20 @@ type Issue struct {
 }
 
 func main() {
-	// Ask the user for the owner of the repository
-	// and the name of the repository.
-	fmt.Print("Enter the owner of the repository (FROM):")
-	var ownerFrom string
-	fmt.Scanln(&ownerFrom)
-	fmt.Print("Enter the name of the repository (FROM):")
-	var repoFrom string
-	fmt.Scanln(&repoFrom)
 
-	// Ask the user for the owner of the repository
-	// and the name of the repository. fmt.Print("Enter the owner of the repository (TO):")
-	fmt.Print("Enter the owner of the repository (TO):")
-	var ownerTo string
-	fmt.Scanln(&ownerTo)
-	fmt.Print("Enter the name of the repository (TO):")
-	var repoTo string
-	fmt.Scanln(&repoTo)
+	fmt.Print("Enter the owner/repository (FROM): ")
+	var ownerRepoFrom string
+	fmt.Scanln(&ownerRepoFrom)
+
+	fmt.Print("Enter the owner/repository (TO): ")
+	var ownerRepoTo string
+	fmt.Scanln(&ownerRepoTo)
+
+	ownerFrom := ownerRepoFrom[0:strings.Index(ownerRepoFrom, "/")]
+	repoFrom := ownerRepoFrom[strings.Index(ownerRepoFrom, "/")+1 : len(ownerRepoFrom)]
+
+	ownerTo := ownerRepoTo[0:strings.Index(ownerRepoTo, "/")]
+	repoTo := ownerRepoTo[strings.Index(ownerRepoTo, "/")+1 : len(ownerRepoTo)]
 
 	issues := GetIssues(ownerFrom, repoFrom)
 	CreateIssues(ownerTo, repoTo, issues)
@@ -70,8 +69,8 @@ func CreateIssues(owner string, repo string, issues []Issue) {
 		}
 		if len(labels) > 0 {
 
-			fmt.Println(labels)
 			labels = labels[:len(labels)-1]
+			fmt.Println("Issue labels: " + labels)
 		}
 
 		assignees := ""
@@ -89,7 +88,7 @@ func CreateIssues(owner string, repo string, issues []Issue) {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Println("Issue created: " + issue.Title)
+		color.Green("Issue created: " + issue.Title)
 	}
 }
 
